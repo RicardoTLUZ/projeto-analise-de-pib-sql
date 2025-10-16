@@ -33,6 +33,7 @@ queries.sql                # consultas de exemplo
    * `countries.csv`: `country_code`, `country_name`, `region`, `sub_region`, `intermediate_region`
    * `gdp_per_capita.csv`: `country_code`, `year`, `gdp_per_capita`, `gdp_variation`
    * remover duplicatas por `country_code` na tabela de países.
+   * Observação: Os arquivos Countries e gdp_per_capita já estão nesse repositório se você já quiser importar pro pgadmin
 3. **Carga:** salvar os dois CSVs e importar para o PostgreSQL (ex.: `
    \copy Countries FROM 'countries.csv' CSV HEADER;`)
 
