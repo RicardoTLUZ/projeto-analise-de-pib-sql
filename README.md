@@ -40,7 +40,6 @@ queries.sql                # consultas de exemplo
 > **Script usado**: `processar_csv.py` (já incluso)
 
 ```python
-# trecho resumido do script
 import pandas as pd
 
 df = pd.read_csv('pib_per_capita_countries_dataset.csv')
