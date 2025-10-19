@@ -37,7 +37,7 @@ queries.sql                # consultas de exemplo
 3. **Carga:** salvar os dois CSVs e importar para o PostgreSQL (ex.: `
    \copy Countries FROM 'countries.csv' CSV HEADER;`)
 
-> **Script usado**: `processar_csv.py` (já incluso)
+> **[Dataset utilizado](https://www.kaggle.com/datasets/fredericksalazar/global-gdp-pib-per-capita-dataset-1960-present)**: `pib_per_capita_countries_dataset.csv` (Utilize este arquivo)
 
 ```python
 import pandas as pd
