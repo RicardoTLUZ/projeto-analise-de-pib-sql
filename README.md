@@ -91,7 +91,6 @@ As queries abaixo demonstram análises típicas: filtros, agregações, funçõe
 ```sql
 SELECT
   C.country_name,
-  C.region,
   G.gdp_per_capita
 FROM GDP_Per_Capita G
 INNER JOIN Countries C ON G.country_code = C.country_code
@@ -112,7 +111,8 @@ SELECT
   AVG(G.gdp_per_capita) AS media_pib_per_capita
 FROM GDP_Per_Capita G
 INNER JOIN Countries C ON G.country_code = C.country_code
-WHERE G.year = 2020
+WHERE G.year = 2020 
+  AND C.region IS NOT NULL
 GROUP BY C.region
 ORDER BY media_pib_per_capita DESC;
 ```
@@ -141,20 +141,3 @@ ORDER BY G.gdp_per_capita DESC;
 **Objetivo:** filtrar países que performaram acima da média global.
 
 ---
-
-### 4) Ranking por região (ano 2022)
-
-```sql
-SELECT
-  C.region,
-  C.country_name,
-  G.gdp_per_capita,
-  RANK() OVER (PARTITION BY C.region ORDER BY G.gdp_per_capita DESC) AS rank_na_regiao
-FROM GDP_Per_Capita G
-INNER JOIN Countries C ON C.country_code = G.country_code
-WHERE G.year = 2022
-  AND G.gdp_per_capita IS NOT NULL
-  AND G.gdp_per_capita > 0;
-```
-
-**Objetivo:** entender a posição relativa dos países dentro de cada região.
